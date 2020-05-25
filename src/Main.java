@@ -11,7 +11,8 @@ public class Main {
         int hipSize;        //hip size
         int daysPerWeek;       //number of days per week working out
         double BMI_Index;       //BMI = weight / (height^2)
-
+        double waistHip_Ratio;   //waistNarrow/hipSize
+        double waistHeight_Ratio;    //hipSize/height
 
         System.out.println("This program will give you a better idea " +
                 "as to how good of shape you are in based on a few basic metrics");
@@ -37,9 +38,18 @@ public class Main {
         System.out.println("How many days of the week do you workout or have physical activity?");
         daysPerWeek = scan.nextInt();
 
-        BMI_Index = weight / (height * height);
+        BMI_Index = (weight * 703) / (height * height);
         System.out.println("Your BMI (body mass index) is "+ BMI_Index);
 
+        waistHip_Ratio = waistNarrow/hipSize;
+        System.out.println("Your waist to hip ratio is " + waistHip_Ratio);
+
+        waistHeight_Ratio = hipSize/height;
+        System.out.println("Your Waist to Height Ratio is "+ waistHeight_Ratio);
+
+        Person newPerson = new Person(gender, daysPerWeek, BMI_Index, waistHip_Ratio, waistHeight_Ratio);
+
+        
 
 
     }
