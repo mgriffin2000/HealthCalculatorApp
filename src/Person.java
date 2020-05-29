@@ -32,7 +32,7 @@ public class Person {
 
     public String cardioDisease()   {       //returns whether person is at risk for cardiovascular disease or not based on waist to hip ratio
         String cvdStatus = "";
-        if (gend == "male")  {      //if person is male
+        if (gend.compareToIgnoreCase("male") == 0)  {      //if person is male
             if (waist_Hip <= 0.9)
                 cvdStatus = "low risk";
             if ((waist_Hip > 0.9) && (waist_Hip <= 0.99))
@@ -51,17 +51,18 @@ public class Person {
         return cvdStatus;
     }
 
-    public String healthyWeight()   {       //if waist_height ratio is less than a 0.5, they have a healthy weight
+    public boolean healthyWeight()   {       //if waist_height ratio is less than a 0.5, they have a healthy weight
                                             //if less than 0.5 they have a lower risk of a number of life threatening health complications including: heart attacks, strokes, diabetes, and hypertension
         if (waist_Height <= 0.5)
-            return "healthy weight";
-        else return "unhealthy weight";
+            return true;        //healthy weight
+        else return false;      //unhealthy weight
 
     }
 
-    public String getOverallHealthStatus() {
-
-        return healthStatus;        //return overall health status of individual
+    public String toString()    {
+        String output;
+        output = "BMI: " + BMI + "\n" + "Waist to Hip Ratio: " + waist_Hip + "\n" + "Waist to height ratio: " + waist_Height + "\n";
+        return output;
     }
 
 
